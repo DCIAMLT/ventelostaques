@@ -9,14 +9,29 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /**
- * Control del Loader de Bienvenida (3.5 Segundos Estables)
+ * Control del Loader de Bienvenida e Interno Dinámico
  */
 function initLoader() {
     const loader = document.getElementById('loader-bienvenida');
+    const loaderTexto = document.getElementById('loader-texto');
+    
     if (loader) {
+        // Detectamos si estamos en la página de inicio (index.html o raíz)
+        const esInicio = window.location.pathname.endsWith('/') || window.location.pathname.endsWith('index.html');
+        
+        if (!esInicio && loaderTexto) {
+            // Obtenemos el título de la pestaña actual (ej: "Propuestas | Vente Los Taques")
+            // Y extraemos solo la primera parte limpia
+            const tituloLimpio = document.title.split('|')[0].trim();
+            loaderTexto.textContent = `Cargando ${tituloLimpio}...`;
+        }
+        
+        // Tiempo de espera adaptado: 3.5s para inicio (impacto), 1.5s para internas (rapidez)
+        const tiempoEspera = esInicio ? 3500 : 1500;
+        
         setTimeout(() => {
             loader.classList.add('ocultar');
-        }, 3500);
+        }, tiempoEspera);
     }
 }
 
