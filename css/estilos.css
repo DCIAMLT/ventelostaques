@@ -654,4 +654,77 @@ img {
     transform: scale(1.03);
     filter: brightness(0.9);
 }
+/* ==========================================================================
+   ESTILOS DE REDES SOCIALES (MENÚ Y FOOTER)
+   ========================================================================== */
+
+/* Redes dentro del menú desplegable móvil */
+.menu-redes-contenedor {
+    display: none; /* Se oculta por defecto en computadoras */
+    width: 100%;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--borde-suave);
+    text-align: center;
+}
+
+.redes-titulo-menu {
+    font-size: 0.85rem;
+    color: var(--gris-secundario);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.iconos-redes-menu {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.iconos-redes-menu a {
+    font-size: 1.8rem;
+    color: var(--gris-plomo);
+    transition: var(--transicion-fluida);
+}
+
+.iconos-redes-menu a:hover {
+    color: var(--azul-institucional);
+    transform: translateY(-3px);
+}
+
+/* Redes en el Footer */
+.iconos-redes-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.red-footer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7) !important;
+    transition: var(--transicion-fluida);
+}
+
+.red-footer i {
+    font-size: 1.2rem;
+}
+
+.red-footer:hover {
+    padding-left: 5px;
+}
+
+.red-footer.ig:hover { color: #E1306C !important; }
+.red-footer.tt:hover { color: #00F2FE !important; }
+
+/* Ajuste responsivo para mostrar las redes solo dentro del menú hamburguesa en móviles */
+@media (max-width: 768px) {
+    .menu-redes-contenedor {
+        display: block;
+    }
+}
 
