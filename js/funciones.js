@@ -91,17 +91,15 @@ if (formularioInscripcion) {
         })
         .then(response => {
             if (response.ok) {
-                // 1. Ocultamos el formulario por completo
-                formularioInscripcion.style.display = 'none';
-                
-                // 2. Activamos tu animación (probamos ambos métodos para asegurar que aparezca)
-                if (panelExito) {
-                    panelExito.style.display = 'flex'; // O 'block' según tus estilos
-                    panelExito.classList.add('active'); // Por si usa transiciones de CSS
-                }
-                
-                formularioInscripcion.reset();
-            } else {
+    // Oculta el formulario para que no estorbe
+    formularioInscripcion.style.display = 'none';
+    
+    // Muestra el panel centrado
+    if (panelExito) {
+        panelExito.style.display = 'flex';
+    }
+    formularioInscripcion.reset();
+} else {
                 alert('Hubo un inconveniente al enviar tus datos. Por favor, inténtalo de nuevo.');
             }
         })
