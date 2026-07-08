@@ -1,0 +1,429 @@
+/* ==========================================================================
+   VARIABLES DE IDENTIDAD VISUAL (VENTE VENEZUELA)
+   ========================================================================== */
+:root {
+    --azul-institucional: #00A6CE; /* Azul Cian oficial de Vente */
+    --azul-hover: #0084A3;
+    --blanco-puro: #FFFFFF;
+    --gris-fondo: #F8F9FA;
+    --gris-plomo: #2C3E50;
+    --gris-secundario: #6C757D;
+    --borde-suave: #E9ECEF;
+    --fuente-principal: 'Inter', system-ui, -apple-system, sans-serif;
+    --transicion-fluida: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ==========================================================================
+   RESETS Y ESTILOS GLOBALES
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fuente-principal);
+    background-color: var(--blanco-puro);
+    color: var(--gris-plomo);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+body.pagina-alternativa {
+    background-color: var(--gris-fondo);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transicion-fluida);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+.contenedor {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 0;
+}
+
+/* ==========================================================================
+   COMPONENTE GLOBAL: NAVBAR (BARRA DE NAVEGACIÓN)
+   ========================================================================== */
+.header-institucional {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--borde-suave);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo a {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--azul-institucional);
+    letter-spacing: -0.5px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo span {
+    color: var(--gris-plomo);
+    font-weight: 400;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-link {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--gris-plomo);
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--azul-institucional);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--azul-institucional);
+    transition: var(--transicion-fluida);
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 100%;
+}
+
+.btn-cta-nav {
+    background-color: var(--azul-institucional);
+    color: var(--blanco-puro) !important;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.btn-cta-nav:hover {
+    background-color: var(--azul-hover);
+    transform: translateY(-1px);
+}
+
+/* Menú Hamburguesa */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 0.5rem;
+    z-index: 1100;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    transition: var(--transicion-fluida);
+    background-color: var(--gris-plomo);
+    border-radius: 2px;
+}
+
+/* ==========================================================================
+   VISTAS / SECCIONES ESTRUCTURALES
+   ========================================================================== */
+
+/* Hero Banner (Inicio) */
+.hero {
+    background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(248,249,FA,0.95) 100%), url('../img/bg-hero.jpg') center/cover no-repeat;
+    min-height: calc(80vh - 80px);
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 700px;
+    animation: entradaFluida 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.15;
+    color: var(--gris-plomo);
+    margin-bottom: 1.5rem;
+    letter-spacing: -1px;
+}
+
+.hero h1 span {
+    color: var(--azul-institucional);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--gris-secundario);
+    margin-bottom: 2.5rem;
+}
+
+/* Secciones Informativas Comunes */
+.encabezado-seccion {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.encabezado-seccion h2 {
+    font-size: 2.25rem;
+    color: var(--gris-plomo);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.encabezado-seccion p {
+    color: var(--gris-secundario);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Grid de Tarjetas (Propuestas, Noticias, Valores) */
+.grid-dinamico {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.tarjeta-corporativa {
+    background-color: var(--blanco-puro);
+    border: 1px solid var(--borde-suave);
+    border-radius: 8px;
+    padding: 2.5rem;
+    transition: var(--transicion-fluida);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.01);
+}
+
+.tarjeta-corporativa:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 166, 206, 0.08);
+    border-color: rgba(0, 166, 206, 0.2);
+}
+
+.tarjeta-corporativa .icono {
+    color: var(--azul-institucional);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.tarjeta-corporativa h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: var(--gris-plomo);
+}
+
+/* Formuarios Estructurados (Inscripción y Contacto) */
+.contenedor-formulario {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--blanco-puro);
+    padding: 3rem;
+    border-radius: 8px;
+    border: 1px solid var(--borde-suave);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+}
+
+.grupo-form {
+    margin-bottom: 1.5rem;
+}
+
+.grupo-form label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: var(--gris-plomo);
+}
+
+.grupo-form input,
+.grupo-form select,
+.grupo-form textarea {
+    width: 100%;
+    padding: 0.85rem 1rem;
+    border: 1px solid var(--borde-suave);
+    border-radius: 6px;
+    font-family: var(--fuente-principal);
+    font-size: 1rem;
+    background-color: var(--gris-fondo);
+    transition: var(--transicion-fluida);
+}
+
+.grupo-form input:focus,
+.grupo-form select:focus,
+.grupo-form textarea:focus {
+    outline: none;
+    border-color: var(--azul-institucional);
+    background-color: var(--blanco-puro);
+    box-shadow: 0 0 0 3px rgba(0, 166, 206, 0.1);
+}
+
+/* Botones */
+.btn-principal {
+    display: inline-block;
+    background-color: var(--azul-institucional);
+    color: var(--blanco-puro);
+    padding: 0.85rem 2rem;
+    border-radius: 6px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: var(--transicion-fluida);
+    text-align: center;
+    width: 100%;
+}
+
+.btn-principal:hover {
+    background-color: var(--azul-hover);
+}
+
+/* ==========================================================================
+   COMPONENTE GLOBAL: FOOTER (PIE DE PÁGINA)
+   ========================================================================== */
+.footer-institucional {
+    background-color: var(--gris-plomo);
+    color: var(--blanco-puro);
+    padding: 4rem 0 2rem 0;
+    margin-top: auto;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr repeat(2, 1fr);
+    gap: 4rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 3rem;
+    margin-bottom: 2rem;
+}
+
+.footer-info h4 {
+    font-size: 1.3rem;
+    color: var(--azul-institucional);
+    margin-bottom: 1rem;
+}
+
+.footer-enlaces h5 {
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-enlaces ul flex {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.footer-enlaces a {
+    color: rgba(255,255,255,0.7);
+}
+
+.footer-enlaces a:hover {
+    color: var(--azul-institucional);
+    padding-left: 5px;
+}
+
+.footer-derechos {
+    text-align: center;
+    color: rgba(255,255,255,0.5);
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   ANIMACIONES NATIVAS
+   ========================================================================== */
+@keyframes entradaFluida {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================================
+   SISTEMA RESPONSIVO (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2) { opacity: 0; }
+    .hamburger.active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger.active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 80px;
+        flex-direction: column;
+        background-color: var(--blanco-puro);
+        width: 100%;
+        height: calc(100vh - 80px);
+        text-align: center;
+        transition: 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+        gap: 1.5rem;
+        padding-top: 3rem;
+    }
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .contenedor-formulario {
+        padding: 1.5rem;
+    }
+}
