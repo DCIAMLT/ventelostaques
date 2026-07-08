@@ -78,13 +78,10 @@ const panelExito = document.getElementById('panel-exito');
 
 if (formularioInscripcion) {
     formularioInscripcion.addEventListener('submit', function(event) {
-        // 1. Frenamos el envío viejo para procesarlo con AJAX de forma invisible
         event.preventDefault();
 
-        // 2. Recogemos los datos que escribió el usuario
         const datosFormulario = new FormData(formularioInscripcion);
 
-        // 3. Enviamos los datos directamente a tu enlace de Formspree por detrás
         fetch(formularioInscripcion.action, {
             method: formularioInscripcion.method,
             body: datosFormulario,
@@ -94,12 +91,16 @@ if (formularioInscripcion) {
         })
         .then(response => {
             if (response.ok) {
-                // 4. SI TODO SALE BIEN: Ocultamos el formulario y mostramos tu animación de éxito
+                // 1. Ocultamos el formulario por completo
                 formularioInscripcion.style.display = 'none';
+                
+                // 2. Activamos tu animación (probamos ambos métodos para asegurar que aparezca)
                 if (panelExito) {
-                    panelExito.style.display = 'block'; // O la clase de CSS que uses para mostrarlo
+                    panelExito.style.display = 'flex'; // O 'block' según tus estilos
+                    panelExito.classList.add('active'); // Por si usa transiciones de CSS
                 }
-                formularioInscripcion.reset(); // Limpiamos los campos
+                
+                formularioInscripcion.reset();
             } else {
                 alert('Hubo un inconveniente al enviar tus datos. Por favor, inténtalo de nuevo.');
             }
