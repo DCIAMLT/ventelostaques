@@ -326,36 +326,27 @@ img {
 }
 
 /* MODAL / ANIMACIÓN ÉXITO FORMULARIO */
+/* Panel de éxito oculto por defecto, centrado y estilizado */
 .mensaje-exito-afiliacion {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--blanco-puro);
-    border-radius: 8px;
-    display: flex;
+    display: none; /* JavaScript lo activa cambiándolo a 'flex' */
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 2rem;
-    opacity: 0;
-    visibility: hidden;
-    transition: var(--transicion-fluida);
-    z-index: 10;
+    padding: 3rem 1.5rem;
+    background: #ffffff;
 }
 
-.mensaje-exito-afiliacion.activado {
-    opacity: 1;
-    visibility: visible;
-    animation: entradaFluida 0.5s ease forwards;
-}
-
+/* Tamaño de los emojis */
 .emoji-animado {
-    font-size: 4rem;
+    font-size: 3rem;
     margin-bottom: 1rem;
-    animation: rebote 1s infinite alternate;
+}
+
+.mensaje-exito-afiliacion h3 {
+    color: #002d62;
+    font-size: 1.5rem;
+    margin: 0;
 }
 
 /* ==========================================================================
