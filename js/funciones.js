@@ -89,3 +89,30 @@ function initAfiliacionForm() {
         });
     }
 }
+/**
+ * Automatización de Botones para Compartir en Redes Sociales
+ */
+function configurarBotonesCompartir() {
+    // 1. Capturamos la URL y el Título real de la página actual
+    const urlNoticia = encodeURIComponent(window.location.href);
+    const tituloNoticia = encodeURIComponent(document.title.split('|')[0].trim());
+
+    // 2. Buscamos los botones en el HTML
+    const btnWs = document.getElementById('share-ws');
+    const btnFb = document.getElementById('share-fb');
+    const btnTw = document.getElementById('share-tw');
+
+    // 3. Si los botones existen en la página, les inyectamos los enlaces automáticos
+    if (btnWs) {
+        btnWs.href = `https://api.whatsapp.com/send?text=${tituloNoticia}%20-%20${urlNoticia}`;
+    }
+    if (btnFb) {
+        btnFb.href = `https://www.facebook.com/sharer/sharer.php?u=${urlNoticia}`;
+    }
+    if (btnTw) {
+        btnTw.href = `https://twitter.com/intent/tweet?text=${tituloNoticia}&url=${urlNoticia}`;
+    }
+}
+
+// Nos aseguramos de que la función se ejecute apenas cargue la página
+document.addEventListener('DOMContentLoaded', configurarBotonesCompartir);
