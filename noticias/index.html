@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticias | Vente Los Taques</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+    <link rel="icon" type="image/png" href="../img/logofondo.png">
+</head>
+<body class="pagina-alternativa">
+
+    <!-- Loader Dinámico -->
+    <div class="pantalla-carga" id="loader-bienvenida">
+        <div class="pantalla-carga-contenido">
+            <h2 id="loader-texto">Cargando...</h2>
+            <img src="../img/logofondo.png" alt="Logo Icono">
+        </div>
+    </div>
+
+    <header class="header-institucional">
+        <nav class="navbar">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../img/logo.png" alt="Vente Los Taques" class="logo-img">
+                </a>
+            </div>
+            <button class="hamburger" aria-label="Abrir menú" aria-expanded="false">
+                <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Inicio</a></li>
+                <li><a href="../nosotros/" class="nav-link">Nosotros</a></li>
+                <li><a href="../propuestas/" class="nav-link">Propuestas</a></li>
+                <li><a href="../noticias/" class="nav-link">Noticias</a></li>
+                <li><a href="../juventud/" class="nav-link">Vente Joven</a></li>
+                <li><a href="../contacto/" class="nav-link">Contacto</a></li>
+                <li><a href="../inscribete/" class="nav-link btn-cta-nav">Inscríbete</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contenedor">
+        <div class="encabezado-seccion">
+            <h2>Pulsaciones Municipales</h2>
+            <p>Sigue de cerca las jornadas, eventos políticos y el despliegue de nuestros equipos en las calles de Los Taques.</p>
+        </div>
+
+        <!-- Rejilla con aspecto de Web de Noticias Real -->
+        <div class="grid-dinamico">
+            
+            <!-- Noticia Ejemplo 1 -->
+            <article class="tarjeta-noticia">
+                <img src="../img/evento1.jpg" alt="Jornada Casa por Casa" class="noticia-portada">
+                <div class="noticia-cuerpo">
+                    <div class="noticia-meta">📅 05 de Julio, 2026</div>
+                    <h3>Gran despliegue casa por casa lleva el mensaje de la libertad a Los Taques</h3>
+                    <p>Nuestros coordinadores y equipos juveniles recorrieron las principales calles del sector, conversando de frente con los vecinos sobre el libre mercado y la propiedad.</p>
+                    <a href="ejemplo-noticia-1.html" class="btn-leer-mas">Leer noticia completa →</a>
+                </div>
+            </article>
+
+            <!-- Puedes duplicar el bloque de arriba para añadir más noticias en el futuro -->
+
+        </div>
+    </main>
+
+    <script src="../js/funciones.js"></script>
+</body>
+</html>
+
