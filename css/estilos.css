@@ -695,4 +695,28 @@ img {
         display: block;
     }
 }
+/* ==========================================================================
+   REPARACIÓN BOTÓN SÚMATE AL MOVIMIENTO (INICIO)
+   ========================================================================== */
+.hero-seccion .btn-cta-nav, 
+a[href*="inscribete"].btn-cta-nav,
+a.btn-cta-nav {
+    display: inline-block;
+    background-color: #00a4e4 !important; /* El azul celeste de Vente */
+    color: #ffffff !important; /* Texto blanco obligatorio */
+    padding: 0.8rem 2rem;
+    border-radius: 4px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 164, 228, 0.2);
+    margin-top: 1rem;
+}
 
+/* Efecto cuando pasas el dedo o el mouse por encima */
+.hero-seccion .btn-cta-nav:hover,
+a.btn-cta-nav:hover {
+    background-color: #002d62 !important; /* Cambia a azul oscuro institucional */
+    transform: translateY(-2px);
+}
