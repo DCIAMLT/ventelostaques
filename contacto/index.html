@@ -3,18 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contacto y Sugerencias | Vente Venezuela</title>
+    <title>Contacto | Vente Los Taques</title>
     <link rel="stylesheet" href="../css/estilos.css">
-    <link rel="icon" type="image/png" href="../img/favicon.png">
+    <link rel="icon" type="image/png" href="../img/logofondo.png">
 </head>
 <body class="pagina-alternativa">
+
+    <div class="pantalla-carga" id="loader-bienvenida">
+        <div class="pantalla-carga-contenido">
+            <h2>Bienvenido/a</h2>
+            <img src="../img/logofondo.png" alt="Logo Icono">
+        </div>
+    </div>
 
     <header class="header-institucional">
         <nav class="navbar">
             <div class="logo">
-                <a href="../index.html">VENTE <span>Municipal</span></a>
+                <a href="../index.html">
+                    <img src="../img/logo.png" alt="Vente Los Taques" class="logo-img">
+                </a>
             </div>
-            <button class="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false">
+            <button class="hamburger" aria-label="Abrir menú" aria-expanded="false">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -23,6 +32,7 @@
                 <li><a href="../index.html" class="nav-link">Inicio</a></li>
                 <li><a href="../nosotros/" class="nav-link">Nosotros</a></li>
                 <li><a href="../propuestas/" class="nav-link">Propuestas</a></li>
+                <li><a href="../juventud/" class="nav-link">Vente Joven</a></li>
                 <li><a href="../contacto/" class="nav-link">Contacto</a></li>
                 <li><a href="../inscribete/" class="nav-link btn-cta-nav">Inscríbete</a></li>
             </ul>
@@ -31,8 +41,8 @@
 
     <main class="contenedor">
         <div class="encabezado-seccion">
-            <h2>Atención Ciudadana</h2>
-            <p>¿Tienes alguna propuesta o denuncia sobre tu comunidad? Utiliza nuestro buzón de sugerencias institucional.</p>
+            <h2>Atención Ciudadana en Los Taques</h2>
+            <p>Envía tus ideas, propuestas o planteamientos directamente a nuestra coordinación municipal.</p>
         </div>
 
         <div class="contenedor-formulario">
@@ -41,54 +51,18 @@
                     <label for="nombre-contacto">Nombre Completo</label>
                     <input type="text" id="nombre-contacto" name="nombre" required placeholder="Tu nombre">
                 </div>
-
                 <div class="grupo-form">
                     <label for="email-contacto">Correo Electrónico</label>
                     <input type="email" id="email-contacto" name="email" required placeholder="correo@ejemplo.com">
                 </div>
-
                 <div class="grupo-form">
-                    <label for="asunto-contacto">Asunto</label>
-                    <input type="text" id="asunto-contacto" name="asunto" required placeholder="Ej. Propuesta de vialidad local">
+                    <label for="mensaje-contacto">Mensaje o Sugerencia</label>
+                    <textarea id="mensaje-contacto" name="mensaje" rows="6" required placeholder="Escribe aquí..."></textarea>
                 </div>
-
-                <div class="grupo-form">
-                    <label for="mensaje-contacto">Detalle de la Sugerencia o Comentario</label>
-                    <textarea id="mensaje-contacto" name="mensaje" rows="6" required placeholder="Escribe tu mensaje aquí de forma explícita..."></textarea>
-                </div>
-
                 <button type="submit" class="btn-principal">Enviar Mensaje Formal</button>
             </form>
         </div>
     </main>
-
-    <footer class="footer-institucional">
-        <div class="contenedor">
-            <div class="footer-grid">
-                <div class="footer-info">
-                    <h4>VENTE Venezuela</h4>
-                    <p>Una organización política comprometida con la transformación estructural y ética del país desde cada rincón municipal.</p>
-                </div>
-                <div class="footer-enlaces">
-                    <h5>Navegación</h5>
-                    <ul>
-                        <li><a href="../nosotros/">Nosotros</a></li>
-                        <li><a href="../propuestas/">Propuestas</a></li>
-                        <li><a href="../contacto/">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="footer-enlaces">
-                    <h5>Militancia</h5>
-                    <ul>
-                        <li><a href="../inscribete/">Afiliación Oficial</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-derechos">
-                <p>&copy; 2026 Vente Venezuela Municipal. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
 
     <script src="../js/funciones.js"></script>
 </body>
