@@ -3,18 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inscríbete en el Movimiento | Vente Venezuela</title>
+    <title>Inscríbete | Vente Los Taques</title>
     <link rel="stylesheet" href="../css/estilos.css">
-    <link rel="icon" type="image/png" href="../img/favicon.png">
+    <link rel="icon" type="image/png" href="../img/logofondo.png">
 </head>
 <body class="pagina-alternativa">
+
+    <div class="pantalla-carga" id="loader-bienvenida">
+        <div class="pantalla-carga-contenido">
+            <h2>Bienvenido/a</h2>
+            <img src="../img/logofondo.png" alt="Logo Icono">
+        </div>
+    </div>
 
     <header class="header-institucional">
         <nav class="navbar">
             <div class="logo">
-                <a href="../index.html">VENTE <span>Municipal</span></a>
+                <a href="../index.html">
+                    <img src="../img/logo.png" alt="Vente Los Taques" class="logo-img">
+                </a>
             </div>
-            <button class="hamburger" aria-label="Abrir menú de navegación" aria-expanded="false">
+            <button class="hamburger" aria-label="Abrir menú" aria-expanded="false">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -23,6 +32,7 @@
                 <li><a href="../index.html" class="nav-link">Inicio</a></li>
                 <li><a href="../nosotros/" class="nav-link">Nosotros</a></li>
                 <li><a href="../propuestas/" class="nav-link">Propuestas</a></li>
+                <li><a href="../juventud/" class="nav-link">Vente Joven</a></li>
                 <li><a href="../contacto/" class="nav-link">Contacto</a></li>
                 <li><a href="../inscribete/" class="nav-link btn-cta-nav">Inscríbete</a></li>
             </ul>
@@ -31,12 +41,19 @@
 
     <main class="contenedor">
         <div class="encabezado-seccion">
-            <h2>Registro de Afiliación Ciudadana</h2>
-            <p>Forma parte activa del equipo que transformará el municipio. Introduce tus datos de manera formal.</p>
+            <h2>Registro de Afiliación Municipal</h2>
+            <p>Introduce tus datos. Una vez enviado el formulario, nos comunicaremos contigo de forma directa vía telefónica.</p>
         </div>
 
         <div class="contenedor-formulario">
-            <form action="https://api.tu-servidor.com/militancia" method="POST">
+            <!-- Bloque de Animación de Éxito Flotante Interno -->
+            <div class="mensaje-exito-afiliacion" id="panel-exito">
+                <div class="emoji-animado">🗽🇻🇪</div>
+                <h3>¡Bienvenido al partido de la Libertad!</h3>
+                <p style="color: var(--gris-secundario); margin-top: 0.5rem;">Formulario enviado con éxito. Por favor, espere nuestro contacto.</p>
+            </div>
+
+            <form id="form-afiliacion" method="POST">
                 <div class="grupo-form">
                     <label for="nombre">Nombre Completo</label>
                     <input type="text" id="nombre" name="nombre_completo" required placeholder="Ej. Juan Pérez">
@@ -52,48 +69,10 @@
                     <input type="tel" id="telefono" name="telefono_contacto" required placeholder="Ej. 04125555555">
                 </div>
 
-                <div class="grupo-form">
-                    <label for="parroquia">Parroquia del Municipio</label>
-                    <select id="parroquia" name="parroquia_municipio" required>
-                        <option value="" disabled selected>Seleccione su parroquia</option>
-                        <option value="parroquia_1">Parroquia Principal</option>
-                        <option value="parroquia_2">Parroquia Foránea Norte</option>
-                        <option value="parroquia_3">Parroquia Foránea Sur</option>
-                    </select>
-                </div>
-
-                <button type="submit" class="btn-principal">Enviar Afiliación Oficial</button>
+                <button type="submit" class="btn-principal">Enviar Solicitud de Afiliación</button>
             </form>
         </div>
     </main>
-
-    <footer class="footer-institucional">
-        <div class="contenedor">
-            <div class="footer-grid">
-                <div class="footer-info">
-                    <h4>VENTE Venezuela</h4>
-                    <p>Una organización política comprometida con la transformación estructural y ética del país desde cada rincón municipal.</p>
-                </div>
-                <div class="footer-enlaces">
-                    <h5>Navegación</h5>
-                    <ul>
-                        <li><a href="../nosotros/">Nosotros</a></li>
-                        <li><a href="../propuestas/">Propuestas</a></li>
-                        <li><a href="../contacto/">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="footer-enlaces">
-                    <h5>Militancia</h5>
-                    <ul>
-                        <li><a href="../inscribete/">Afiliación Oficial</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-derechos">
-                <p>&copy; 2026 Vente Venezuela Municipal. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
 
     <script src="../js/funciones.js"></script>
 </body>
