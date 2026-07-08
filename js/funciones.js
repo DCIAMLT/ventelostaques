@@ -72,22 +72,42 @@ function highlightActiveLink() {
     });
 }
 
-/**
- * Animación y Manejo Exclusivo de Inscripción
- */
-function initAfiliacionForm() {
-    const form = document.getElementById('form-afiliacion');
-    const panelExito = document.getElementById('panel-exito');
-    
-    if (form && panelExito) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault(); // Detiene recarga para mostrar animación
-            
-            // Simulación estética de envío institucional exitoso
-            panelExito.classList.add('activado');
-            form.reset();
+// Busca el formulario en la página
+const formularioInscripcion = document.querySelector('.formulario-inscripcion');
+const panelExito = document.getElementById('panel-exito');
+
+if (formularioInscripcion) {
+    formularioInscripcion.addEventListener('submit', function(event) {
+        // 1. Frenamos el envío viejo para procesarlo con AJAX de forma invisible
+        event.preventDefault();
+
+        // 2. Recogemos los datos que escribió el usuario
+        const datosFormulario = new FormData(formularioInscripcion);
+
+        // 3. Enviamos los datos directamente a tu enlace de Formspree por detrás
+        fetch(formularioInscripcion.action, {
+            method: formularioInscripcion.method,
+            body: datosFormulario,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                // 4. SI TODO SALE BIEN: Ocultamos el formulario y mostramos tu animación de éxito
+                formularioInscripcion.style.display = 'none';
+                if (panelExito) {
+                    panelExito.style.display = 'block'; // O la clase de CSS que uses para mostrarlo
+                }
+                formularioInscripcion.reset(); // Limpiamos los campos
+            } else {
+                alert('Hubo un inconveniente al enviar tus datos. Por favor, inténtalo de nuevo.');
+            }
+        })
+        .catch(error => {
+            alert('Error de conexión. Inténtalo de nuevo más tarde.');
         });
-    }
+    });
 }
 /**
  * Automatización de Botones para Compartir en Redes Sociales
