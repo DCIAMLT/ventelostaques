@@ -1,14 +1,11 @@
 /**
- * Lógica de Interfaz de Usuario Corporativa - Vente Venezuela
+ * Lógica de Interfaz de Usuario Corporativa - Vente Venezuela (Optimizado)
  */
 document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     highlightActiveLink();
 });
 
-/**
- * Control Dinámico del Menú de Hamburguesa
- */
 function initMobileMenu() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
@@ -23,33 +20,26 @@ function initMobileMenu() {
             hamburger.setAttribute('aria-expanded', !isExpanded);
         });
 
-        // Cerrar menú al hacer clic en un enlace
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
-                navMenu.classList.remove('remove');
+                navMenu.classList.remove('active');
                 hamburger.setAttribute('aria-expanded', 'false');
             });
         });
     }
 }
 
-/**
- * Resaltado automático de la sección activa según la estructura de carpetas
- */
 function highlightActiveLink() {
     const currentPath = window.location.pathname;
     const navLinks = document.querySelectorAll('.nav-link');
     
     navLinks.forEach(link => {
-        const href = link.getAttribute('href');
+        const href = link.getAttribute('href').replace('../', '');
         
-        // Manejo del home / raíz
-        if (href === '/' && (currentPath === '/' || currentPath === '/index.html')) {
+        if (href === 'index.html' && (currentPath.endsWith('/') || currentPath.endsWith('index.html'))) {
             link.classList.add('active');
-        } 
-        // Manejo de subcarpetas organizadas
-        else if (href !== '/' && currentPath.includes(href)) {
+        } else if (href !== 'index.html' && currentPath.includes(href)) {
             link.classList.add('active');
         }
     });
