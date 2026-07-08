@@ -65,24 +65,33 @@
                 <p style="color: var(--gris-secundario); margin-top: 0.5rem;">Formulario enviado con éxito. Por favor, espere nuestro contacto.</p>
             </div>
 
-            <form id="form-afiliacion" method="POST">
-                <div class="grupo-form">
-                    <label for="nombre">Nombre Completo</label>
-                    <input type="text" id="nombre" name="nombre_completo" required placeholder="Ej. Juan Pérez">
-                </div>
-                
-                <div class="grupo-form">
-                    <label for="cedula">Cédula de Identidad</label>
-                    <input type="text" id="cedula" name="cedula_identidad" required placeholder="Ej. V-12345678">
-                </div>
+            <form action="https://formspree.io/f/xvzjjzwe" method="POST" class="formulario-inscripcion">
+    
+    <div class="grupo-campo">
+        <label for="nombre">Nombre y Apellido:</label>
+        <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre completo">
+    </div>
 
-                <div class="grupo-form">
-                    <label for="telefono">Teléfono de Contacto</label>
-                    <input type="tel" id="telefono" name="telefono_contacto" required placeholder="Ej. 04125555555">
-                </div>
+    <div class="grupo-campo">
+        <label for="cedula">Cédula de Identidad:</label>
+        <input type="text" id="cedula" name="cedula" required placeholder="V-00000000">
+    </div>
 
-                <button type="submit" class="btn-principal">Enviar Solicitud de Afiliación</button>
-            </form>
+    <div class="grupo-campo">
+        <label for="telefono">Teléfono / WhatsApp:</label>
+        <input type="tel" id="telefono" name="telefono" required placeholder="0412-0000000">
+    </div>
+
+    <div class="grupo-campo">
+        <label for="sector">Sector de Los Taques:</label>
+        <input type="text" id="sector" name="sector" required placeholder="Ej: Creolandia, Judibana...">
+    </div>
+
+    <!-- Asunto del correo que te va a llegar -->
+    <input type="hidden" name="_subject" value="¡Nueva solicitud de afiliación!">
+
+    <button type="submit" class="btn-enviar-formulario">Solicitar Inscripción</button>
+</form>
         </div>
     </main>
     <footer class="footer-institucional">
