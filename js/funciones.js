@@ -135,3 +135,43 @@ function configurarBotonesCompartir() {
 
 // Nos aseguramos de que la función se ejecute apenas cargue la página
 document.addEventListener('DOMContentLoaded', configurarBotonesCompartir);
+
+// ==========================================================================
+// CONTROLADOR DEL FORMULARIO DE CONTACTO
+// ==========================================================================
+const formularioContacto = document.querySelector('.formulario-contacto');
+const panelExitoContacto = document.getElementById('panel-exito-contacto');
+
+if (formularioContacto) {
+    formularioContacto.addEventListener('submit', function(event) {
+        // 1. Frenamos la redirección a la página de Formspree
+        event.preventDefault();
+
+        // 2. Capturamos los datos escritos
+        const datosContacto = new FormData(formularioContacto);
+
+        // 3. Enviamos los datos por detrás de forma invisible
+        fetch(formularioContacto.action, {
+            method: formularioContacto.method,
+            body: datosContacto,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                // 4. Si todo sale bien, ocultamos los campos y activamos el mensaje de éxito
+                formularioContacto.style.display = 'none';
+                if (panelExitoContacto) {
+                    panelExitoContacto.style.display = 'flex';
+                }
+                formularioContacto.reset(); // Limpiamos el formulario
+            } else {
+                alert('Hubo un problema al enviar el mensaje. Inténtalo de nuevo.');
+            }
+        })
+        .catch(error => {
+            alert('Error de conexión. Revisa tu internet e inténtalo más tarde.');
+        });
+    });
+}
