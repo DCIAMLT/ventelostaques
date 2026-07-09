@@ -696,27 +696,75 @@ img {
     }
 }
 /* ==========================================================================
-   REPARACIÓN BOTÓN SÚMATE AL MOVIMIENTO (INICIO)
+   DISEÑO HERO SECCIÓN CON FOTO AÉREA DE LA PLAZA DE LOS TAQUES
    ========================================================================== */
-.hero-seccion .btn-cta-nav, 
-a[href*="inscribete"].btn-cta-nav,
-a.btn-cta-nav {
-    display: inline-block;
-    background-color: #00a4e4 !important; /* El azul celeste de Vente */
-    color: #ffffff !important; /* Texto blanco obligatorio */
-    padding: 0.8rem 2rem;
-    border-radius: 4px;
-    font-weight: bold;
-    text-decoration: none;
+
+.hero-seccion {
+    position: relative;
+    /* Aplicamos un fondo doble:
+       1. Un degradado lineal que va de blanco puro abajo (para fundirse con la sección que sigue) 
+          a un azul/transparente muy sutil arriba.
+       2. La imagen aérea de la plaza guardada en tu carpeta de imágenes.
+    */
+    background-image: 
+        linear-gradient(
+            to top, 
+            #ffffff 0%, 
+            #ffffff 15%, 
+            rgba(255, 255, 255, 0.7) 50%, 
+            rgba(255, 255, 255, 0.15) 100%
+        ), 
+        url('../img/plaza-taques.jpg');
+    
+    background-size: cover;
+    background-position: center 30%; /* Centra la foto aérea priorizando la parte superior */
+    background-repeat: no-repeat;
+    padding: 8rem 2rem 6rem 2rem; /* Espaciado interno generoso para lucir la foto */
     text-align: center;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-    box-shadow: 0 4px 10px rgba(0, 164, 228, 0.2);
-    margin-top: 1rem;
+    z-index: 1;
+    overflow: hidden;
 }
 
-/* Efecto cuando pasas el dedo o el mouse por encima */
-.hero-seccion .btn-cta-nav:hover,
-a.btn-cta-nav:hover {
-    background-color: #002d62 !important; /* Cambia a azul oscuro institucional */
-    transform: translateY(-2px);
+/* Aseguramos que todos los textos que van encima de la foto tengan sombra
+   para que no se pierdan con el fondo y mantengan un contraste del 100%.
+*/
+.hero-seccion h1 {
+    font-size: 2.5rem;
+    color: #002d62 !important; /* Azul oscuro institucional de Vente */
+    text-shadow: 
+        0 2px 4px rgba(255, 255, 255, 0.9), 
+        0 4px 12px rgba(255, 255, 255, 0.6);
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero-seccion p {
+    font-size: 1.2rem;
+    color: #1a1a1a !important; /* Texto oscuro de alto contraste */
+    max-width: 700px;
+    margin: 0 auto 2rem auto;
+    text-shadow: 
+        0 1px 3px rgba(255, 255, 255, 0.95), 
+        0 2px 8px rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+/* Efecto decorativo adicional: Un borde sutil que ayuda a suavizar 
+   el final del bloque en dispositivos móviles.
+*/
+@media (max-width: 768px) {
+    .hero-seccion {
+        padding: 6rem 1.5rem 4rem 1.5rem;
+        background-position: center center;
+    }
+    
+    .hero-seccion h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-seccion p {
+        font-size: 1.05rem;
+    }
 }
